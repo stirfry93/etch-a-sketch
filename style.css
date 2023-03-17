@@ -2,10 +2,24 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(255, 142, 128);
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-align: center;
+}
+
+button {
+    margin-bottom: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     height: 500px;
     width: 500px;
+    margin: auto;
+    background-color: white;
 }
