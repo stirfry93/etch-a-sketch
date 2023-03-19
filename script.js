@@ -11,7 +11,7 @@ function generateGrid() {
 
     grid.style.flexShrink = '0';
 
-    grid.style.border = '.5px solid black';
+    grid.style.border = '.5px solid rgb(237, 237, 237)';
 
 }
 }
@@ -30,30 +30,39 @@ const button = document.querySelector('button');
 
 button.addEventListener("click", () => {
     let userChoice = prompt("How many squares would you like on each side of your grid? (1-100)?");
-    var num1 = parseInt(userChoice);
+    console.log(userChoice);
+    let userNumber = parseInt(userChoice);
+    console.log(userNumber);
+    let finalNumber = Math.round(userNumber);
+    console.log(finalNumber);
 
     const oldSquareDivs = container.querySelectorAll('div');
     oldSquareDivs.forEach(oldSquareDiv => {
         oldSquareDiv.remove();
     });
 
-    let totalSquares = (num1 * num1);
+    let totalSquares = (finalNumber * finalNumber);
 
     let newContainer = document.querySelector('#container');
 
     function changeGridSize() {
         for (let squares = 0; squares < totalSquares; squares++) {
 
+            if (finalNumber > 100) {
+                alert("Please make smaller choice.");
+                return;
+            }
+
             const newGrid = document.createElement('div');
         
             newContainer.appendChild(newGrid);
         
-            newGrid.style.height = 500/userChoice + 'px';
-            newGrid.style.width = 500/userChoice  + 'px';
+            newGrid.style.height = 500/finalNumber + 'px';
+            newGrid.style.width = 500/finalNumber  + 'px';
         
             newGrid.style.flexShrink = '0';
         
-            newGrid.style.border = '.5px solid black';
+            newGrid.style.border = '.5px solid rgb(237, 237, 237)';
     }
     }
     changeGridSize();
